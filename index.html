@@ -11,9 +11,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <style>
-        /* CSS: Advanced Premium Styling */
-        html { scroll-behavior: smooth; } /* Smooth scrolling effect */
-        
+        /* CSS: Global Styles */
+        html { scroll-behavior: smooth; }
         body { 
             font-family: 'Inter', system-ui, -apple-system, sans-serif; 
             line-height: 1.7; 
@@ -22,19 +21,81 @@
             padding: 0;
             background-color: #f7fafc;
         }
-        
-        /* Premium Hero Area Layout */
-        header { 
+
+        /* NEW: Header Bar with Logo */
+        header.top-bar {
+            background-color: #ffffff; /* Clean white background for the bar */
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between; /* Pushes logo and nav to opposite ends */
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky; /* Keeps it visible while scrolling */
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Spacing between logo and text */
+        }
+
+        .logo-container img {
+            max-height: 50px; /* Adjusts logo size */
+            width: auto;
+        }
+
+        .top-bar h1 {
+            color: #1a202c;
+            font-size: 1.5rem; /* Standard nav title size */
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        /* Nav links inside the header */
+        .top-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .top-nav a:hover { color: #2b6cb0; } /* Brand blue on hover */
+
+        /* Adjusted Hero Section (Now Below Top-Bar) */
+        section.hero {
             background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%); 
             color: white;
-            padding: 90px 20px; 
+            padding: 100px 20px; 
             text-align: center; 
         }
-        header h1 { color: #ffffff; margin-bottom: 15px; font-size: 2.8rem; font-weight: 700; letter-spacing: -0.05em; }
-        header p { color: #cbd5e0; max-width: 700px; margin: 0 auto 30px auto; font-size: 1.25rem; }
-        
+
+        .hero h2 {
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            border: none; /* No underline in hero */
+            padding: 0;
+        }
+
+        .hero p { color: #cbd5e0; max-width: 700px; margin: 0 auto 30px auto; font-size: 1.25rem; }
+
+        /* Typography & Layout for Main Content */
         main { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-        
         h2 { color: #2b6cb0; margin-top: 60px; border-bottom: 2px solid #e2e8f0; padding-bottom: 12px; font-size: 1.9rem; font-weight: 600; }
         
         /* Grid and Interactive Cards */
@@ -47,14 +108,9 @@
             border-radius: 12px; 
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             border: 1px solid #e2e8f0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover animation transition */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
         }
-        /* Elevating card shadow effect on mouse hover */
-        .card:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 12px 20px rgba(0,0,0,0.06); 
-        }
-        
+        .card:hover { transform: translateY(-5px); box-shadow: 0 12px 20px rgba(0,0,0,0.06); }
         .card-icon { color: #2b6cb0; font-size: 2rem; margin-bottom: 15px; display: block; }
         .cert-card { border-top: 4px solid #2b6cb0; }
         
@@ -77,7 +133,7 @@
         @media (min-width: 768px) { .about-container { grid-template-columns: 1fr 2fr; } }
         .highlight-box { background: #ebf8ff; border-left: 4px solid #2b6cb0; padding: 30px; border-radius: 0 12px 12px 0; }
 
-        /* Premium Form Controls */
+        /* Form Controls */
         form { 
             background: #fff; 
             padding: 45px; 
@@ -93,54 +149,45 @@
         .checkbox-item input { width: auto; margin-right: 12px; margin-top: 4px; transform: scale(1.1); }
         label { display: block; margin-bottom: 8px; font-weight: 600; color: #2d3748; font-size: 0.95rem; }
         input[type="text"], input[type="email"], textarea { 
-            width: 100%; 
-            padding: 14px; 
-            border: 1px solid #cbd5e0; 
-            border-radius: 6px; 
-            box-sizing: border-box; 
-            font-size: 1rem;
-            font-family: inherit;
-            background-color: #fcfdfd;
-            transition: border-color 0.2s;
+            width: 100%; padding: 14px; border: 1px solid #cbd5e0; border-radius: 6px; box-sizing: border-box; font-size: 1rem; font-family: inherit; background-color: #fcfdfd; transition: border-color 0.2s;
         }
         input:focus, textarea:focus { border-color: #2b6cb0; background-color: #fff; outline: none; }
-        form button { 
-            background: #2b6cb0; 
-            color: white; 
-            padding: 16px 20px; 
-            border: none; 
-            border-radius: 6px; 
-            cursor: pointer; 
-            font-weight: 600; 
-            width: 100%;
-            font-size: 1rem;
-            margin-top: 10px;
-            box-shadow: 0 4px 12px rgba(43, 108, 176, 0.2);
-        }
+        form button { background: #2b6cb0; color: white; padding: 16px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; width: 100%; font-size: 1rem; margin-top: 10px; box-shadow: 0 4px 12px rgba(43, 108, 176, 0.2); }
         form button:hover { background: #2c5282; }
         
-        footer { 
-            background: #1a202c; 
-            color: #718096;
-            text-align: center; 
-            margin-top: 100px; 
-            padding: 40px 20px; 
-            font-size: 0.9rem; 
-        }
+        footer { background: #1a202c; color: #718096; text-align: center; margin-top: 100px; padding: 40px 20px; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>CoreLine Solutions</h1>
-        <p>We design the workflows, deliver the critical projects, and build the training frameworks that allow your business to scale seamlessly.</p>
-        <a href="#contact" class="cta-btn">Book an Operational Audit</a>
+    <!-- UPDATED: Top Navigation Bar with Logo -->
+    <header class="top-bar">
+        <div class="logo-container">
+            <!-- Referencing the logo image verbatim -->
+            <img src="image_9813a2.jpg" alt="CoreLine Solutions Logo">
+            <h1>CoreLine Solutions</h1>
+        </div>
+        <nav class="top-nav">
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
+
+    <!-- NEW: Hero Section -->
+    <section class="hero">
+        <h2>Strategic Operational Solutions</h2>
+        <p>We design the workflows, deliver critical projects, and build training frameworks that allow your business to scale seamlessly.</p>
+        <a href="#contact" class="cta-btn">Book an Operational Audit</a>
+    </section>
 
     <main>
         <!-- Services Section -->
-        <section>
-            <h2>Core Solutions</h2>
+        <section id="services">
+            <h2>Core Expertise</h2>
             <div class="grid-3">
                 <div class="card">
                     <span class="material-icons-round card-icon">assignment_turned_in</span>
@@ -177,7 +224,7 @@
         </section>
 
         <!-- Certifications Section -->
-        <section>
+        <section id="certifications">
             <h2>Verified Technical Frameworks</h2>
             <div class="grid-3">
                 <div class="card cert-card">
@@ -206,6 +253,7 @@
             <h2>Let's Protect Your Timeline</h2>
             <p style="text-align: center; max-width: 600px; margin: 0 auto 20px auto; color:#4a5568;">Ready to optimize your operations or rescue a critical project? Select your primary challenge below, and let's coordinate an audit.</p>
             
+            <!-- Replace with your actual Formspree ID -->
             <form action="https://formspree.io/f/mvzeodae" method="POST">
                 <div class="form-group">
                     <label for="name">Your Name</label>
@@ -249,7 +297,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 CoreLine Operations. All rights reserved.</p>
+        <p>&copy; 2026 CoreLine Solutions. All rights reserved.</p>
     </footer>
 
 </body>
