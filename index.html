@@ -1,305 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoreLine Operations | Project, Training & QA Specialist</title>
-    <!-- Google Fonts & Icons for a premium look -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-    
-    <style>
-        /* CSS: Global Styles */
-        html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Inter', system-ui, -apple-system, sans-serif; 
-            line-height: 1.7; 
-            color: #2d3748; 
-            margin: 0; 
-            padding: 0;
-            background-color: #f7fafc;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coreline Solutions | Operational Excellence & Virtual Support</title>
+  <style>
+    /* BASIC LAYOUT & RESETS */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #333333;
+      line-height: 1.6;
+      background-color: #f8f9fa;
+    }
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 0;
+    }
+    h1, h2, h3 {
+      color: #0f172a;
+      margin-bottom: 16px;
+    }
+    p {
+      margin-bottom: 20px;
+    }
 
-        /* NEW: Header Bar with Logo */
-        header.top-bar {
-            background-color: #ffffff; /* Clean white background for the bar */
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between; /* Pushes logo and nav to opposite ends */
-            align-items: center;
-            border-bottom: 1px solid #e2e8f0;
-            position: sticky; /* Keeps it visible while scrolling */
-            top: 0;
-            z-index: 1000;
-        }
+    /* BUTTONS */
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+    .btn-primary {
+      background-color: #2563eb;
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background-color: #1d4ed8;
+    }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px; /* Spacing between logo and text */
-        }
+    /* HERO / HEADER SECTION */
+    .hero-section {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      text-align: center;
+      padding: 100px 0 80px 0;
+    }
+    .hero-section h1 {
+      color: #ffffff;
+      font-size: 2.75rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: #cbd5e1;
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+    }
 
-        .logo-container img {
-            max-height: 50px; /* Adjusts logo size */
-            width: auto;
-            mix-blend-mode: multiply; /* NEW: Automatically drops the logo's off-white background */
-        }
+    /* CORE EXPERTISE / SERVICES SECTION */
+    .services-section {
+      background-color: #ffffff;
+      text-align: center;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+      text-align: left;
+    }
+    .service-card {
+      background-color: #f8f9fa;
+      padding: 30px;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+    .service-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+    .service-card p {
+      font-size: 0.95rem;
+      color: #475569;
+      margin-bottom: 0;
+    }
 
-        .top-bar h1 {
-            color: #1a202c;
-            font-size: 1.5rem; /* Standard nav title size */
-            margin: 0;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-        }
+    /* STATS / EXPERIENCE SECTION */
+    .stats-section {
+      background-color: #2563eb;
+      color: #ffffff;
+      text-align: center;
+      padding: 50px 0;
+    }
+    .stat-number {
+      display: block;
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 1.1rem;
+      color: #dbeafe;
+      font-weight: 500;
+    }
 
-        /* Nav links inside the header */
-        .top-nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 25px;
-        }
+    /* CALENDLY EMBED SECTION */
+    .booking-section {
+      background-color: #ffffff;
+      text-align: center;
+      border-top: 1px solid #e2e8f0;
+    }
 
-        .top-nav a {
-            text-decoration: none;
-            color: #4a5568;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .top-nav a:hover { color: #2b6cb0; } /* Brand blue on hover */
-
-        /* Adjusted Hero Section (Now Below Top-Bar) */
-        section.hero {
-            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%); 
-            color: white;
-            padding: 100px 20px; 
-            text-align: center; 
-        }
-
-        .hero h2 {
-            color: #ffffff;
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-size: 2.8rem;
-            font-weight: 700;
-            letter-spacing: -0.05em;
-            border: none; /* No underline in hero */
-            padding: 0;
-        }
-
-        .hero p { color: #cbd5e0; max-width: 700px; margin: 0 auto 30px auto; font-size: 1.25rem; }
-
-        /* Typography & Layout for Main Content */
-        main { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-        h2 { color: #2b6cb0; margin-top: 60px; border-bottom: 2px solid #e2e8f0; padding-bottom: 12px; font-size: 1.9rem; font-weight: 600; }
-        
-        /* Grid and Interactive Cards */
-        .grid-3 { display: grid; grid-template-columns: 1fr; gap: 24px; margin: 30px 0; }
-        @media (min-width: 768px) { .grid-3 { grid-template-columns: 1fr 1fr 1fr; } }
-        
-        .card { 
-            background: #ffffff; 
-            padding: 30px; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            border: 1px solid #e2e8f0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; 
-        }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 12px 20px rgba(0,0,0,0.06); }
-        .card-icon { color: #2b6cb0; font-size: 2rem; margin-bottom: 15px; display: block; }
-        .cert-card { border-top: 4px solid #2b6cb0; }
-        
-        /* High-Contrast Action Buttons */
-        .cta-btn { 
-            display: inline-block; 
-            background: #dd6b20; 
-            color: #fff; 
-            padding: 14px 36px; 
-            text-decoration: none; 
-            border-radius: 6px; 
-            font-weight: 600;
-            box-shadow: 0 4px 14px rgba(221, 107, 32, 0.3);
-            transition: background 0.2s, transform 0.2s;
-        }
-        .cta-btn:hover { background: #c05621; transform: translateY(-1px); }
-        
-        /* About Me Section Layout */
-        .about-container { display: grid; grid-template-columns: 1fr; gap: 40px; margin: 40px 0; align-items: center; }
-        @media (min-width: 768px) { .about-container { grid-template-columns: 1fr 2fr; } }
-        .highlight-box { background: #ebf8ff; border-left: 4px solid #2b6cb0; padding: 30px; border-radius: 0 12px 12px 0; }
-
-        /* Form Controls */
-        form { 
-            background: #fff; 
-            padding: 45px; 
-            border-radius: 12px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.03); 
-            max-width: 650px; 
-            margin: 40px auto;
-            border: 1px solid #e2e8f0;
-        }
-        .form-group { margin-bottom: 24px; }
-        .checkbox-group { margin: 15px 0; }
-        .checkbox-item { display: flex; align-items: flex-start; margin-bottom: 12px; cursor: pointer; font-size: 0.95rem; }
-        .checkbox-item input { width: auto; margin-right: 12px; margin-top: 4px; transform: scale(1.1); }
-        label { display: block; margin-bottom: 8px; font-weight: 600; color: #2d3748; font-size: 0.95rem; }
-        input[type="text"], input[type="email"], textarea { 
-            width: 100%; padding: 14px; border: 1px solid #cbd5e0; border-radius: 6px; box-sizing: border-box; font-size: 1rem; font-family: inherit; background-color: #fcfdfd; transition: border-color 0.2s;
-        }
-        input:focus, textarea:focus { border-color: #2b6cb0; background-color: #fff; outline: none; }
-        form button { background: #2b6cb0; color: white; padding: 16px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; width: 100%; font-size: 1rem; margin-top: 10px; box-shadow: 0 4px 12px rgba(43, 108, 176, 0.2); }
-        form button:hover { background: #2c5282; }
-        
-        footer { background: #1a202c; color: #718096; text-align: center; margin-top: 100px; padding: 40px 20px; font-size: 0.9rem; }
-    </style>
+    /* CONTACT SECTION */
+    .contact-section {
+      background-color: #f8f9fa;
+      text-align: center;
+    }
+    .contact-details {
+      margin-bottom: 30px;
+    }
+    .contact-details a {
+      color: #2563eb;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .contact-details a:hover {
+      text-decoration: underline;
+    }
+    .response-note {
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      background-color: #ffffff;
+    }
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+  </style>
 </head>
 <body>
 
-    <!-- UPDATED: Top Navigation Bar with Logo -->
-    <header class="top-bar">
-        <div class="logo-container">
-            <!-- Referencing the logo image verbatim -->
-            <img src="https://raw.githubusercontent.com/Statphil-arch/coreline-portfolio/b1603a3ae1cd57727478920c24ee90f34f9e0248/Gemini_Generated_Image_tkjv49tkjv49tkjv.png" alt="CoreLine Solutions Logo">
-            <h1>CoreLine Solutions</h1>
+  <!-- 1. HEADER / HERO SECTION -->
+  <header class="hero-section">
+    <div class="container">
+      <h1>Strategic Operational & Virtual Assistant Solutions</h1>
+      <p class="hero-subtitle">
+        We design efficient workflows, deliver critical projects, build training frameworks, and provide dedicated Virtual Assistants for appointment setting, patient calls, and care follow-ups that allow your business to scale seamlessly.
+      </p>
+      <a href="#booking" class="btn btn-primary">Schedule a Call</a>
+    </div>
+  </header>
+
+  <!-- 2. STATS / EXPERIENCE SECTION (10+ YEARS) -->
+  <section class="stats-section">
+    <div class="container" style="padding: 0;">
+      <div class="stat-item">
+        <span class="stat-number">10+</span>
+        <span class="stat-label">Years of Operational Excellence & Execution</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CORE EXPERTISE SECTION -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <h2>Our Core Expertise</h2>
+      <p>Comprehensive solutions designed to streamline operations and elevate client experience.</p>
+      
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card">
+          <h3>Workflow Design & SOPs</h3>
+          <p>Analyzing bottlenecks, engineering streamlined processes, and establishing clear operational procedures that enable sustainable business scaling.</p>
         </div>
-        <nav class="top-nav">
-            <ul>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- NEW: Hero Section -->
-    <section class="hero">
-        <h2>Strategic Operational Solutions</h2>
-        <p>We design the workflows, deliver critical projects, and build training frameworks that allow your business to scale seamlessly.</p>
-        <a href="#contact" class="cta-btn">Book an Operational Audit</a>
-    </section>
+        <!-- Service 2 -->
+        <div class="service-card">
+          <h3>Project Management & Delivery</h3>
+          <p>End-to-end management of critical business projects, ensuring on-time delivery, scope adherence, and cross-functional alignment.</p>
+        </div>
 
-    <main>
-        <!-- Services Section -->
-        <section id="services">
-            <h2>Core Expertise</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <span class="material-icons-round card-icon">assignment_turned_in</span>
-                    <h3>Project Delivery</h3>
-                    <p>Keeping timelines strict, teams aligned, and implementations flawless. I bridge organizational communication gaps to ensure milestones are met on budget and on target.</p>
-                </div>
-                <div class="card">
-                    <span class="material-icons-round card-icon">alt_route</span>
-                    <h3>Operations & Training</h3>
-                    <p>Standardizing disorganized processes into repeatable workflows. I build clear system documentation and corporate onboarding frameworks that reduce training time.</p>
-                </div>
-                <div class="card">
-                    <span class="material-icons-round card-icon">verified_user</span>
-                    <h3>Quality Assurance</h3>
-                    <p>Setting up performance benchmarks, running internal regulatory compliance audits, and ensuring your business output remains consistently high as you scale.</p>
-                </div>
-            </div>
-        </section>
+        <!-- Service 3 -->
+        <div class="service-card">
+          <h3>Training Frameworks & Enablement</h3>
+          <p>Creating structured training programs, onboarding modules, and performance measurement frameworks to empower high-performing teams.</p>
+        </div>
 
-        <!-- About Me Section -->
-        <section id="about">
-            <h2>The Strategist Behind CoreLine</h2>
-            <div class="about-container">
-                <div class="highlight-box">
-                    <p style="margin-top:0; font-size: 1.1rem; color: #2b6cb0; font-weight: 600;">Administrative Leadership</p>
-                    <p style="font-size: 2.6rem; font-weight: 700; color: #2d3748; margin: 5px 0; letter-spacing: -0.05em;">5+ Years</p>
-                    <p style="margin-bottom:0; font-size: 0.95rem; color: #4a5568;">Of hands-on experience structuring high-yield training architectures and organizational operations.</p>
-                </div>
-                <div>
-                    <p style="margin-top: 0;">I partner with expanding companies and business owners to transform high-level strategy into practical, sustainable daily execution. My approach strips away organizational friction, replaces operational guesswork with scalable workflows, and builds rigorous accountability benchmarks within your teams.</p>
-                    <p>Leveraging a professional background anchored in <strong>five years of dedicated training management</strong>, I don't just hand over a static list of tasks—I design deep training delivery models that ensure your staff understands, adopts, and protects new company standards over the long haul.</p>
-                </div>
-            </div>
-        </section>
+        <!-- Service 4 (NEW) -->
+        <div class="service-card">
+          <h3>Virtual Assistants & Healthcare Support</h3>
+          <p>Skilled remote talent handling calendar management, appointment setting, inbound/outbound patient calls, and proactive follow-ups.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Certifications Section -->
-        <section id="certifications">
-            <h2>Verified Technical Frameworks</h2>
-            <div class="grid-3">
-                <div class="card cert-card">
-                    <span class="material-icons-round card-icon" style="color:#2b6cb0;">speed</span>
-                    <h3>Lean Six Sigma</h3>
-                    <p><strong>Yellow Belt Certified</strong></p>
-                    <p style="font-size: 0.95rem; color: #4a5568;">Utilizing data-driven methodologies to isolate structural bottlenecks, eliminate operational waste, and maximize process efficiency to directly safeguard your profit margins.</p>
-                </div>
-                <div class="card cert-card">
-                    <span class="material-icons-round card-icon" style="color:#2b6cb0;">health_and_safety</span>
-                    <h3>Healthcare Operations</h3>
-                    <p><strong>HIPAA Certified Compliance</strong></p>
-                    <p style="font-size: 0.95rem; color: #4a5568;">Ensuring internal administrative workflows, data transfer infrastructures, and operating procedures meet strict federal frameworks regarding sensitive data privacy.</p>
-                </div>
-                <div class="card cert-card">
-                    <span class="material-icons-round card-icon" style="color:#2b6cb0;">model_training</span>
-                    <h3>Workforce Scaling</h3>
-                    <p><strong>Trainer Certifier Certificate</strong></p>
-                    <p style="font-size: 0.95rem; color: #4a5568;">Formally credentialed to evaluate curriculum delivery, audit workplace learning frameworks, and train team leads to implement corporate standards correctly.</p>
-                </div>
-            </div>
-        </section>
+  <!-- 4. EMBEDDED CALENDLY BOOKING SECTION -->
+  <section id="booking" class="booking-section">
+    <div class="container">
+      <h2>Schedule a Discovery Call</h2>
+      <p>Select a date and time that works best for you to discuss how we can support your business operations.</p>
+      
+      <!-- Calendly Inline Widget Start -->
+      <div 
+        class="calendly-inline-widget" 
+        data-url="https://calendly.com/kim-algudon-corelinesolutions/30min" 
+        style="min-width:320px;height:700px;">
+      </div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <!-- Calendly Inline Widget End -->
+    </div>
+  </section>
 
-        <!-- Contact Form Section -->
-        <section id="contact">
-            <h2>Let's Protect Your Timeline</h2>
-            <p style="text-align: center; max-width: 600px; margin: 0 auto 20px auto; color:#4a5568;">Ready to optimize your operations or rescue a critical project? Select your primary challenge below, and let's coordinate an audit.</p>
-            
-            <!-- Replace with your actual Formspree ID -->
-            <form action="https://formspree.io/f/mvzeodae" method="POST">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Jane Doe">
-                </div>
-                <div class="form-group">
-                    <label for="email">Business Email</label>
-                    <input type="email" id="email" name="_replyto" required placeholder="jane@company.com">
-                </div>
-                
-                <div class="form-group">
-                    <label>What do we need to focus on first?</label>
-                    <div class="checkbox-group">
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="need_project" value="Project Delivery">
-                            <span>Rescuing / managing a high-priority project timeline</span>
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="need_ops" value="Operations">
-                            <span>Optimizing internal company workflows & operations</span>
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="need_training" value="Training Frameworks">
-                            <span>Building a training structure or curriculum for my team</span>
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="need_qa" value="Quality Assurance">
-                            <span>Setting up standard operating procedures (SOPs) or QA compliance</span>
-                        </label>
-                    </div>
-                </div>
+  <!-- 5. CONTACT & INQUIRY FORM SECTION -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>Get In Touch</h2>
+      
+      <div class="contact-details">
+        <p>Prefer email? Send your inquiries directly to: <br />
+          <a href="mailto:info@corelinesolutions.net">info@corelinesolutions.net</a>
+        </p>
+        <p class="response-note">Our team responds to all business inquiries within 24 business hours.</p>
+      </div>
 
-                <div class="form-group">
-                    <label for="message">Additional Notes</label>
-                    <textarea id="message" name="message" rows="4" required placeholder="Tell me a bit about your current bottlenecks..."></textarea>
-                </div>
-                
-                <button type="submit">Submit Request</button>
-            </form>
-        </section>
-    </main>
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Your Full Name" required />
+        </div>
+        
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Your Email Address" required />
+        </div>
+        
+        <div class="form-group">
+          <select name="service_interest" required>
+            <option value="" disabled selected>Select the service you need...</option>
+            <option value="virtual_assistants">Virtual Assistants (Patient Calls & Scheduling)</option>
+            <option value="workflow_design">Workflow Design & SOPs</option>
+            <option value="project_management">Project Management</option>
+            <option value="training_frameworks">Training Frameworks</option>
+            <option value="general_inquiry">General Inquiry</option>
+          </select>
+        </div>
 
-    <footer>
-        <p>&copy; 2026 CoreLine Solutions. All rights reserved.</p>
-    </footer>
+        <div class="form-group">
+          <textarea name="message" rows="5" placeholder="Tell us about your business goals or operational needs..." required></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+      </form>
+    </div>
+  </section>
 
 </body>
 </html>
