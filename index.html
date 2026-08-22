@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- BROWSER TAB LOGO / FAVICON -->
+  <link rel="icon" type="image/png" href="Corelinesolutions.png" />
+
   <title>Coreline Solutions | Operational Excellence & Virtual Support</title>
   <style>
     /* BASIC LAYOUT & RESETS */
@@ -46,6 +50,55 @@
     }
     .btn-primary:hover {
       background-color: #1d4ed8;
+    }
+
+    /* TOP NAVIGATION BAR */
+    .navbar {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 12px 0;
+    }
+    .nav-container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #0f172a;
+    }
+    .nav-logo img {
+      height: 40px;
+      width: auto;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #475569;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+    .nav-btn {
+      padding: 8px 16px;
+      font-size: 0.9rem;
     }
 
     /* HERO / HEADER SECTION */
@@ -202,6 +255,21 @@
 </head>
 <body>
 
+  <!-- TOP NAVIGATION BAR WITH LOGO -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <img src="Corelinesolutions.png" alt="Coreline Solutions Logo" />
+        <span>Coreline Solutions</span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#certifications">Credentials</a>
+        <a href="#booking" class="btn btn-primary nav-btn">Book a Call</a>
+      </div>
+    </div>
+  </nav>
+
   <!-- 1. HEADER / HERO SECTION -->
   <header class="hero-section">
     <div class="container">
@@ -230,25 +298,21 @@
       <p>Comprehensive solutions designed to streamline operations and elevate client experience.</p>
       
       <div class="services-grid">
-        <!-- Service 1 -->
         <div class="service-card">
           <h3>Workflow Design & SOPs</h3>
           <p>Analyzing bottlenecks, engineering streamlined processes, and establishing clear operational procedures that enable sustainable business scaling.</p>
         </div>
 
-        <!-- Service 2 -->
         <div class="service-card">
           <h3>Project Management & Delivery</h3>
           <p>End-to-end management of critical business projects, ensuring on-time delivery, scope adherence, and cross-functional alignment.</p>
         </div>
 
-        <!-- Service 3 -->
         <div class="service-card">
           <h3>Training Frameworks & Enablement</h3>
           <p>Creating structured training programs, onboarding modules, and performance measurement frameworks to empower high-performing teams.</p>
         </div>
 
-        <!-- Service 4 -->
         <div class="service-card">
           <h3>Virtual Assistants & Healthcare Support</h3>
           <p>Skilled remote talent handling calendar management, appointment setting, inbound/outbound patient calls, and proactive follow-ups.</p>
